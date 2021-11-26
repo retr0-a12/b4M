@@ -1,0 +1,64 @@
+
+#!/bin/bash
+
+trap ctrl_c INT
+ctrl_c() {
+clear
+echo -e $red"ctrl + c saliendo..."
+sleep 1
+exit
+}
+clear
+
+echo "[1]abrir un puerto ngrok"
+echo "[2]escanear un puerto con nmap"
+echo "[3]hacer un escaneo https con sslscan"
+echo "[4]DNS"
+echo "[5]hacer un ataque Dos con xerxes"
+echo "[6]cambiar mac"
+echo "[7]salir "
+echo -n "elige-->"
+read s
+if [ $s = 1 ]; then
+echo -n "puerto:"
+read puerto
+if [ $puerto = $puerto ]; then
+       ./ngrok http $puerto
+fi
+elif [ $s = 2 ]; then
+echo -n "puerto a escanear?:"
+read puertO 
+if [ $puertO = $puertO ]; then
+nmap $puertO
+fi
+elif [ $s = 3 ]; then
+      echo "escanear-->"
+      read escanear 
+      if [ $escanear = $escanear ]; then
+             sslscan $escanear
+fi
+elif [ $s = 4 ]; then
+       echo -n "TAG:"
+       rea
+       if [$TAG = $TAG ]; then
+       dnsmap $TAG
+ fi
+       elif [ $s = 5 ]; then
+       echo -n "DNS-->"
+       read DNS
+       if [ $DNS = $DNS ]; then
+       nmap $DNS
+   fi
+       echo -n "que puerto atacar?"
+       read atacar
+       if [ $atacar = $atacar ]; then
+          cd xerxes
+         ./xerxes $DNS $atacar
+         elif [ $s = 6 ]; then
+             ifconfig eth0 hw ether 00:11:22:33:44:55
+             ifconfig
+elif [ $s = 7 ]; then 
+     exit 0        
+         fi
+
+         fi
